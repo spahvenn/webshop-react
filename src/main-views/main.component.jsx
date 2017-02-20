@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router';
+import Navigation from './navigation.component.jsx';
 
 class Main extends Component {
   render(){
     return(
       <div>
+        <Navigation></Navigation>
         <div className="container">
           {this.props.children}
         </div>

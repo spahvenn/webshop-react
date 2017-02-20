@@ -17,9 +17,9 @@ class HomeCarousel extends Component {
   render() {
     var carouselImages = this.state.images.map(function(image, i) {
       return (
-        <Carousel.Item>
+        <Carousel.Item key={i}>
           <div className="text-center">
-            <img src={image} />
+            <img src={image} alt={image} />
           </div>
         </Carousel.Item>
       )
