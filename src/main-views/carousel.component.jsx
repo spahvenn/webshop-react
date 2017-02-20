@@ -4,13 +4,13 @@ import phoneImage1 from '../img/phones/droid-2-global-by-motorola.0.jpg';
 import phoneImage2 from '../img/phones/motorola-atrix-4g.0.jpg';
 import phoneImage3 from '../img/phones/nexus-s.0.jpg';
 
-
 class HomeCarousel extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      interval: 3500
+      interval: 3500,
+      images: [phoneImage1, phoneImage2, phoneImage3]
     };
   }
 
@@ -18,21 +18,17 @@ class HomeCarousel extends Component {
     return (
       <div>
         <Carousel>
-          <Carousel.Item>
-            <div className="text-center">
-              <img src={phoneImage1} />
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="text-center">
-              <img src={phoneImage2} />
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="text-center">
-              <img src={phoneImage1} />
-            </div>
-          </Carousel.Item>
+          {
+            this.state.images.map(function(object, i) {
+              return (
+                <Carousel.Item>
+                  <div className="text-center">
+                    <img src={object} />
+                  </div>
+                </Carousel.Item>
+              )
+            })
+          }
         </Carousel>
       </div>
     )
