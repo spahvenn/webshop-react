@@ -15,20 +15,20 @@ class HomeCarousel extends Component {
   }
 
   render() {
+    var carouselImages = this.state.images.map(function(image, i) {
+      return (
+        <Carousel.Item>
+          <div className="text-center">
+            <img src={image} />
+          </div>
+        </Carousel.Item>
+      )
+    });
+
     return (
       <div>
-        <Carousel>
-          {
-            this.state.images.map(function(object, i) {
-              return (
-                <Carousel.Item>
-                  <div className="text-center">
-                    <img src={object} />
-                  </div>
-                </Carousel.Item>
-              )
-            })
-          }
+        <Carousel interval={this.state.interval}>
+          { carouselImages }
         </Carousel>
       </div>
     )
