@@ -1,5 +1,71 @@
+/* app css stylesheet */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+.carousel-inner .item {
+  text-align: center;
+}
+
+.carousel-caption p {
+  font-size: 20px;
+}
+
+#carousel {
+  margin-bottom: 10px;
+}
+
+#phone-detail-price {
+  font-size: 18px;
+}
+
+.phone-list-item {
+}
+
+.add-to-cart-btn {
+  margin-bottom: 10px;
+}
+
+.bg-info {
+    padding: 15px;
+}
+
+.phone-images img {
+  display: block;
+  margin: auto;
+}
+
+.phone-list-item a > img {
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+#navbar #shopping-cart-item-amount {
+  position: relative;
+  bottom: 1px;
+  background-color: red;
+  color: white;
+  padding: 0px 4px;
+  border-radius: 5px;
+}
+
+@media (min-width: 992px) {
+  .phone-list-item a > img {
+      height: 120px;
+  }
+  .phone-list-item {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .phone-list-item a > img {
+      height: 150px;
+  }
+  .phone-list-item {
+    height: 300px;
+  }
 }

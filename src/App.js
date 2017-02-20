@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { render } from 'react-dom';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import Home from './main-views/home.component.jsx'
+import Main from './main-views/main.component.jsx'
+
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+      return(
+        <Router history={browserHistory}>
+            <Route component={Main}>
+                <Route path="/" component={Home}/>
+            </Route>
+        </Router>
+      )
+    }
+  };
 
 export default App;
