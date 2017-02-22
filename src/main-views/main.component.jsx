@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Navigation from './navigation.component.jsx';
+import Navigation from './navigation.component';
+import Footer from './footer.component';
 
 class Main extends Component {
   render(){
@@ -8,6 +9,8 @@ class Main extends Component {
         <Navigation></Navigation>
         <div className="container">
           {this.props.children}
+          <hr/>
+          <Footer></Footer>
         </div>
       </div>
     );
