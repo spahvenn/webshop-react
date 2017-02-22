@@ -6,6 +6,7 @@ import Main from './main-views/main.component';
 import Phones from './main-views/phones.component';
 import PhoneDetail from './main-views/phone-detail.component';
 import About from './main-views/about.component';
+import ShoppingCart from './main-views/shopping-cart.component';
 
 class App extends Component {
   render() {
@@ -19,6 +20,9 @@ class App extends Component {
             </Route>
             <Route component={Main}>
                 <Route path="/phones/:phoneId" component={PhoneDetail}/>
+            </Route>
+            <Route component={Main}>
+                <Route path="/shopping-cart" component={ShoppingCart}/>
             </Route>
             <Route component={Main}>
                 <Route path="/about" component={About}/>
