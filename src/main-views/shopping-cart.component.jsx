@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router';
 
 class ShoppingCart extends Component {
 
@@ -20,7 +21,7 @@ class ShoppingCart extends Component {
         </div>
         <div class='row'>
           <div class="col-md-9">
-            <div className={this.state.hasShoppingCartItems ? 'hidden' : ''}>Your shopping cart is empty! Browse our <a href="/phones">products</a>.</div>
+            <div className={this.state.hasShoppingCartItems ? 'hidden' : ''}>Your shopping cart is empty! Browse our <Link to="/phones">products</Link>.</div>
           </div>
           <div class="col-md-3">
 

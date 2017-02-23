@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import HomeCarousel from './carousel.component.jsx'
+import { Link } from 'react-router';
 
 class Home extends Component {
   handleRedirect(){
@@ -20,7 +21,7 @@ class Home extends Component {
           <div className="col-md-4">
             <h2>Phones</h2>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a className="btn btn-primary" href="#!/phones" role="button">See more »</a></p>
+            <p><Link to="/phones" className="btn btn-primary" role="button">See more »</Link></p>
           </div>
           <div className="col-md-4">
             <h2>Accessories</h2>
@@ -33,7 +34,7 @@ class Home extends Component {
             <p>Extended Warranties coming soon!</p>
           </div>
         </div>
-        
+
       </div>
 
     )

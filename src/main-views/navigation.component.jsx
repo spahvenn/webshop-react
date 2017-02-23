@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
+
 
 class Navigation extends Component {
   render(){
@@ -12,22 +14,22 @@ class Navigation extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/">Webshop</a>
+            <Link to="/" className="navbar-brand">Webshop</Link>
           </div>
           <div id="navbar" className="navbar-collapse collapse" aria-expanded="false" style={{height: '1px'}}>
             <ul className="nav navbar-nav">
               <li>
-                <a href="/phones">Phones</a>
+                <Link to="/phones">Phones</Link>
               </li>
               <li>
-                <a href="/shopping-cart">
+                <Link to="/shopping-cart">
                   Shopping Cart
                   <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                   <span id="shopping-cart-item-amount">TODO item amount</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about">About</a>
+                <Link to="/about">About</Link>
               </li>
             </ul>
           </div>

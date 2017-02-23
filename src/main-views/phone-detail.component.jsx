@@ -22,10 +22,6 @@ class PhoneDetail extends Component {
     })
   }
 
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
-
   render() {
 
     if (!this.state.phone) {

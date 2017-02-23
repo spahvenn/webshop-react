@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router';
 
 class Main extends Component {
 
@@ -21,10 +22,6 @@ class Main extends Component {
     })
   }
 
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
-
   render(){
     return(
       <div>
@@ -33,10 +30,10 @@ class Main extends Component {
             this.state.phones.map(function(phone) {
               return (
                 <div key={phone.id} className="thumbnail phone-list-item col-md-3">
-                  <a href={"/phones/"+ phone.id} className="thumb">
+                  <Link to={"/phones/"+ phone.id} className="thumb">
                     <img src={phone.imageUrl} alt={phone.name} />
-                  </a>
-                  <a href={"/phones/"+ phone.id}>{phone.name}</a>
+                  </Link>
+                  <Link to={"/phones/"+ phone.id}>{phone.name}</Link>
                   <p>{phone.snippet}</p>
                 </div>
               )
