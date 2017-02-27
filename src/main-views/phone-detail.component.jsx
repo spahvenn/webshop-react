@@ -6,20 +6,25 @@ class PhoneDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phone: null
+      phone: null,
     };
+    this.addItemToCart = this.addItemToCart.bind(this);
   }
 
   componentWillMount() {
     var self = this;
-    var phoneId = this.props.params.phoneId;
+    this.phoneId = this.props.params.phoneId;
     this.serverRequest =
-    Axios.get('/phones-data/' + phoneId + '.json')
+    Axios.get('/phones-data/' + this.phoneId + '.json')
     .then(function(result) {
       self.setState({
         phone: result.data,
       });
     })
+  }
+
+  addItemToCart() {
+    this.props.route.addItemToCart(this.phoneId);
   }
 
   render() {
@@ -43,7 +48,8 @@ class PhoneDetail extends Component {
 
             <div>
               <p id="phone-detail-price">Price: { this.state.phone.price }</p>
-              <shopping-cart-btn></shopping-cart-btn>
+              <button onClick={this.addItemToCart} className="add-to-cart-btn btn btn-primary">Add to cart</button>
+              <p className="bg-info">Products in cart: { this.props.route.shoppingCartItemAmount }</p>
             </div>
           </div>
         </div>
