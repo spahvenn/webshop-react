@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
+import ShoppingCartAddButtonContainer from '../components/shopping-cart-add-button/shopping-cart-add-button-container';
+import { connect } from 'react-redux';
+import store from '../store';
+
 
 class PhoneDetail extends Component {
 
@@ -48,8 +52,8 @@ class PhoneDetail extends Component {
 
             <div>
               <p id="phone-detail-price">Price: { this.state.phone.price }</p>
-              <button onClick={this.addItemToCart} className="add-to-cart-btn btn btn-primary">Add to cart</button>
-              <p className="bg-info">Products in cart: { this.props.route.shoppingCartItemAmount }</p>
+              <ShoppingCartAddButtonContainer phoneId={this.phoneId}></ShoppingCartAddButtonContainer>
+              <p className="bg-info">Products in cart: { this.props.shoppingCartItems.length }</p>
             </div>
           </div>
         </div>
@@ -165,4 +169,15 @@ class PhoneDetail extends Component {
   }
 }
 
-export default PhoneDetail;
+PhoneDetail.defaultProps = {
+    shoppingCartItems: []
+}
+
+const mapStateToProps = function(store) {
+  return {
+    shoppingCartItems: store.shoppingCartState.shoppingCartItems
+  };
+};
+
+
+export default connect(mapStateToProps)(PhoneDetail);
