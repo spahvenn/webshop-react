@@ -14,7 +14,6 @@ class ShoppingCartAddButtonContainer extends Component {
 
   // TODO: move this to a reusable location
   addItemToShoppingCart() {
-    console.log('addItemToShoppingCart clicked');
     store.dispatch(addItemToShoppingCart(this.props.phoneId));
   }
 
@@ -25,29 +24,4 @@ class ShoppingCartAddButtonContainer extends Component {
   }
 }
 
-/*
-const mapStateToProps = function(store) {
-
-
-  let shoppingCartItems = store.shoppingCartState.shoppingCartItems;
-  const itemData;
-  if (shoppingCartItems) {
-      let item = null;
-      itemData = _.find(shoppingCartItems, function(item) {
-      return item.id === self.phoneId;
-    });
-  }
-
-  let amount = 0;
-  if (itemData) {
-    amount = itemData.amount;
-  }
-
-  return {
-    amount: amount
-  };
-
-
-};
-*/
 export default ShoppingCartAddButtonContainer;

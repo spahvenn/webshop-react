@@ -3,6 +3,7 @@ import Axios from 'axios';
 import ShoppingCartAddButtonContainer from '../components/shopping-cart-add-button/shopping-cart-add-button-container';
 import { connect } from 'react-redux';
 import store from '../store';
+import _ from 'underscore';
 
 
 class PhoneDetail extends Component {
@@ -37,6 +38,16 @@ class PhoneDetail extends Component {
       return (<div>loading ...</div>);
     }
 
+    let itemAmount = 0;
+    if (this.props.shoppingCartItems) {
+      let itemData = _.find(this.props.shoppingCartItems, (item) => {
+        return item.phoneId === this.phoneId;
+      });
+      if (itemData) {
+        itemAmount = itemData.amount;
+      }
+    }
+
     return (
       <div>
         <div className="row">
@@ -52,8 +63,8 @@ class PhoneDetail extends Component {
 
             <div>
               <p id="phone-detail-price">Price: { this.state.phone.price }</p>
-              <ShoppingCartAddButtonContainer phoneId={this.phoneId}></ShoppingCartAddButtonContainer>
-              <p className="bg-info">Products in cart: { this.props.shoppingCartItems.length }</p>
+              <ShoppingCartAddButtonContainer phoneId={ this.phoneId }></ShoppingCartAddButtonContainer>
+              <p className="bg-info">Products in cart: { itemAmount }</p>
             </div>
           </div>
         </div>
