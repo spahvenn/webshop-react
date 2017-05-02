@@ -179,10 +179,6 @@ class PhoneDetail extends Component {
   }
 }
 
-PhoneDetail.defaultProps = {
-    shoppingCartItems: []
-}
-
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -196,5 +192,4 @@ const mapStateToProps = function(store) {
   };
 };
 
-
-export default connect(mapStateToProps)(PhoneDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneDetail);

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import { connect } from 'react-redux';
 
 
 class Navigation extends Component {
@@ -25,7 +26,7 @@ class Navigation extends Component {
                 <Link to="/shopping-cart">
                   Shopping Cart
                   <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                  <span id="shopping-cart-item-amount">TODO item amount</span>
+                  <span id="shopping-cart-item-amount">{ this.props.shoppingCartItemAmount }</span>
                 </Link>
               </li>
               <li>
@@ -39,4 +40,11 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation
+const mapStateToProps = function(store) {
+    return {
+        shoppingCartItemAmount: store.shoppingCartState.shoppingCart.shoppingCartItemAmount
+    };
+};
+
+
+export default connect(mapStateToProps)(Navigation);
