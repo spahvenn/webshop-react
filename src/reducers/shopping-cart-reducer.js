@@ -2,14 +2,17 @@ import * as types from '../actions/action-types';
 import _ from 'underscore';
 
 const initialState = {
-  shoppingCartItems: [],
+  shoppingCart: {
+    shoppingCartItems: [],
+    shoppingCartItemAmount: 0
+  }
 };
 
 const shoppingCartReducer = function(state = initialState, action) {
 
   switch(action.type) {
-    case types.ADD_ITEM_TO_SHOPPING_CART:
-      let newShoppingCartItems = state.shoppingCartItems.slice();
+      case types.ADD_ITEM_TO_SHOPPING_CART:
+      let newShoppingCartItems = state.shoppingCart.shoppingCartItems.slice();
       let itemData;
       if (newShoppingCartItems) {
         itemData = _.find(newShoppingCartItems, function(item) {
@@ -24,13 +27,15 @@ const shoppingCartReducer = function(state = initialState, action) {
         newShoppingCartItems.push(itemData);
       }
 
-      return Object.assign(
-        {},
-        state,
-        { shoppingCartItems: newShoppingCartItems }
-      );
-    case types.GET_SHOPPING_CART:
-      return state.shoppingCartItems;
+      let newShoppingCartItemAmount = state.shoppingCart.shoppingCartItemAmount + 1;
+
+      return {
+        shoppingCart: {
+          shoppingCartItems: newShoppingCartItems,
+          shoppingCartItemAmount: newShoppingCartItemAmount
+        }
+      }
+
   }
 
   return state;

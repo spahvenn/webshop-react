@@ -4,7 +4,7 @@ import ShoppingCartAddButtonContainer from '../components/shopping-cart-add-butt
 import { connect } from 'react-redux';
 import store from '../store';
 import _ from 'underscore';
-
+import * as shoppingCartActions from '../actions/shopping-cart-actions';
 
 class PhoneDetail extends Component {
 
@@ -13,7 +13,6 @@ class PhoneDetail extends Component {
     this.state = {
       phone: null,
     };
-    this.addItemToCart = this.addItemToCart.bind(this);
   }
 
   componentWillMount() {
@@ -29,7 +28,7 @@ class PhoneDetail extends Component {
   }
 
   addItemToCart() {
-    this.props.route.addItemToCart(this.phoneId);
+    this.props.addItemToShoppingCart(this.phoneId);
   }
 
   render() {
@@ -39,8 +38,8 @@ class PhoneDetail extends Component {
     }
 
     let itemAmount = 0;
-    if (this.props.shoppingCartItems) {
-      let itemData = _.find(this.props.shoppingCartItems, (item) => {
+    if (this.props.shoppingCart.shoppingCartItems) {
+      let itemData = _.find(this.props.shoppingCart.shoppingCartItems, (item) => {
         return item.phoneId === this.phoneId;
       });
       if (itemData) {
@@ -184,9 +183,16 @@ PhoneDetail.defaultProps = {
     shoppingCartItems: []
 }
 
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addItemToShoppingCart: (itemId) => dispatch(shoppingCartActions.addItemToShoppingCart(itemId))
+    }
+};
+
 const mapStateToProps = function(store) {
   return {
-    shoppingCartItems: store.shoppingCartState.shoppingCartItems
+    shoppingCart: store.shoppingCartState.shoppingCart
   };
 };
 
