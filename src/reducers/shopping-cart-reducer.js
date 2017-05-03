@@ -11,7 +11,7 @@ const initialState = {
 const shoppingCartReducer = function(state = initialState, action) {
 
   switch(action.type) {
-      case types.ADD_ITEM_TO_SHOPPING_CART:
+    case types.ADD_ITEM_TO_SHOPPING_CART:
       let newShoppingCartItems = state.shoppingCart.shoppingCartItems.slice();
       let itemData;
       if (newShoppingCartItems) {
