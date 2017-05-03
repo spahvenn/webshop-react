@@ -27,10 +27,6 @@ class PhoneDetail extends Component {
     })
   }
 
-  addItemToCart() {
-    this.props.addItemToShoppingCart(this.phoneId);
-  }
-
   render() {
 
     if (!this.state.phone) {
@@ -179,17 +175,10 @@ class PhoneDetail extends Component {
   }
 }
 
-// Maps actions to props
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addItemToShoppingCart: (itemId) => dispatch(shoppingCartActions.addItemToShoppingCart(itemId))
-    }
-};
-
 const mapStateToProps = function(store) {
   return {
     shoppingCart: store.shoppingCartState.shoppingCart
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhoneDetail);
+export default connect(mapStateToProps)(PhoneDetail);
