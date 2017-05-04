@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import {Router, Route, browserHistory} from 'react-router';
-import _ from 'underscore';
 import { Provider } from 'react-redux';
 
 import Home from './main-views/home.component';

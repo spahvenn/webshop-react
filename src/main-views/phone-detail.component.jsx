@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import Axios from 'axios';
 import ShoppingCartAddButtonContainer from '../components/shopping-cart-add-button/shopping-cart-add-button-container';
 import { connect } from 'react-redux';
-import store from '../store';
 import _ from 'underscore';
-import * as shoppingCartActions from '../actions/shopping-cart-actions';
 
 class PhoneDetail extends Component {
 
