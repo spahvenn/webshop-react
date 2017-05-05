@@ -174,7 +174,7 @@ class PhoneDetail extends Component {
 
 const mapStateToProps = function(store) {
   return {
-    shoppingCart: store.shoppingCartState.shoppingCart
+    shoppingCart: store.shoppingCartState
   };
 };
 

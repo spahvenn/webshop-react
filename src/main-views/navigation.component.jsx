@@ -42,7 +42,7 @@ class Navigation extends Component {
 
 const mapStateToProps = function(store) {
     return {
-        shoppingCartItemAmount: store.shoppingCartState.shoppingCart.shoppingCartItemAmount
+        shoppingCartItemAmount: store.shoppingCartState.shoppingCartItemAmount
     };
 };
 

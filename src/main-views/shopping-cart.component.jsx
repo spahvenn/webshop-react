@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import _ from 'underscore';
 import Promise from 'bluebird';
 import Axios from 'axios';
-import ShoppingCartUtils from '../components/shopping-cart/shopping-cart-utils';
+import ShoppingCartUtils from '../utils/shopping-cart-utils';
 
 class ShoppingCart extends Component {
-  
+
   componentDidMount() {
 
     let shoppingCartItems = this.props.shoppingCartItems.slice();
@@ -83,8 +83,8 @@ class ShoppingCart extends Component {
 
 const mapStateToProps = function(store) {
   return {
-    shoppingCartItems: store.shoppingCartState.shoppingCart.shoppingCartItems,
-    shoppingCartItemAmount: store.shoppingCartState.shoppingCart.shoppingCartItemAmount
+    shoppingCartItems: store.shoppingCartState.shoppingCartItems,
+    shoppingCartItemAmount: store.shoppingCartState.shoppingCartItemAmount
   };
 };
 

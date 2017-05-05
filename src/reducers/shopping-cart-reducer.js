@@ -2,17 +2,15 @@ import * as types from '../actions/action-types';
 import _ from 'underscore';
 
 const initialState = {
-  shoppingCart: {
-    shoppingCartItems: [],
-    shoppingCartItemAmount: 0,
-  }
+  shoppingCartItems: [],
+  shoppingCartItemAmount: 0,
 };
 
 const shoppingCartReducer = function(state = initialState, action) {
 
   switch(action.type) {
     case types.ADD_ITEM_TO_SHOPPING_CART:
-      let newShoppingCartItems = state.shoppingCart.shoppingCartItems.slice();
+      let newShoppingCartItems = state.shoppingCartItems.slice();
       let itemData;
       if (newShoppingCartItems) {
         itemData = _.find(newShoppingCartItems, function(item) {
@@ -29,13 +27,11 @@ const shoppingCartReducer = function(state = initialState, action) {
       }
 
       // update item amount
-      let newShoppingCartItemAmount = state.shoppingCart.shoppingCartItemAmount + 1;
+      let newShoppingCartItemAmount = state.shoppingCartItemAmount + 1;
 
       return {
-        shoppingCart: {
-          shoppingCartItems: newShoppingCartItems,
-          shoppingCartItemAmount: newShoppingCartItemAmount
-        }
+        shoppingCartItems: newShoppingCartItems,
+        shoppingCartItemAmount: newShoppingCartItemAmount
       }
     default:
       console.log('Action not defined: ' + action.type);
