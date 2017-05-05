@@ -36,7 +36,7 @@ const shoppingCartReducer = function(state = initialState, action) {
         }
       }
     default:
-      console.error('Action not defined: ' + action.type);
+      console.log('Action not defined: ' + action.type);
   }
 
   return state;

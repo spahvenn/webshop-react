@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ShoppingCartAddButton from './shopping-cart-add-button';
-import store from '../../store';
-import { addItemToShoppingCart } from '../../actions/shopping-cart-actions';
+import {addItemToShoppingCart} from '../../actions/shopping-cart-actions';
+import { connect } from 'react-redux';
 
 class ShoppingCartAddButtonContainer extends Component {
 
@@ -10,16 +10,25 @@ class ShoppingCartAddButtonContainer extends Component {
     this.addItemToShoppingCart = this.addItemToShoppingCart.bind(this);
   }
 
-  // TODO: move this to a reusable location
   addItemToShoppingCart() {
-    store.dispatch(addItemToShoppingCart(this.props.phoneId));
+    this.props.addItemToShoppingCart(this.props.phoneId);
   }
 
   render() {
     return (
-      <ShoppingCartAddButton addItemToShoppingCart={this.addItemToShoppingCart} />
+      <ShoppingCartAddButton
+        addItemToShoppingCart={this.addItemToShoppingCart}
+      />
     );
   }
+
 }
 
-export default ShoppingCartAddButtonContainer;
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItemToShoppingCart: item => dispatch(addItemToShoppingCart(item))
+  }
+};
+
+export default connect(null, mapDispatchToProps)(ShoppingCartAddButtonContainer);

@@ -16,7 +16,6 @@ class PhoneDetail extends Component {
   componentWillMount() {
     var self = this;
     this.phoneId = this.props.params.phoneId;
-    this.serverRequest =
     Axios.get('/phones-data/' + this.phoneId + '.json')
     .then(function(result) {
       self.setState({
