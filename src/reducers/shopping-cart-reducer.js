@@ -4,7 +4,7 @@ import _ from 'underscore';
 const initialState = {
   shoppingCart: {
     shoppingCartItems: [],
-    shoppingCartItemAmount: 0
+    shoppingCartItemAmount: 0,
   }
 };
 
@@ -20,6 +20,7 @@ const shoppingCartReducer = function(state = initialState, action) {
         });
       }
 
+      // increase item amount or add item to shopping cart
       if (itemData) {
         itemData.amount += 1;
       } else {
@@ -27,6 +28,7 @@ const shoppingCartReducer = function(state = initialState, action) {
         newShoppingCartItems.push(itemData);
       }
 
+      // update item amount
       let newShoppingCartItemAmount = state.shoppingCart.shoppingCartItemAmount + 1;
 
       return {
