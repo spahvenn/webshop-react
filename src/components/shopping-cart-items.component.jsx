@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import _ from 'underscore';
 import Promise from 'bluebird';
 
-class ShoppingCartItem extends Component {
+class ShoppingCartItems extends Component {
 
   constructor(props) {
     super(props);
@@ -66,7 +66,7 @@ class ShoppingCartItem extends Component {
                   </div>
 
                   <div className="col-md-2 bg-info">
-                    <p>Price {phone.amount} x {phone.price}</p>
+                    <p>Price: {phone.amount} x {phone.price}</p>
                     <p>Total: <span className="amount">{ phone.amount * phone.price }</span></p>
                   </div>
 
@@ -87,4 +87,4 @@ const mapStateToProps = function(store) {
   };
 };
 
-export default connect(mapStateToProps)(ShoppingCartItem);
+export default connect(mapStateToProps)(ShoppingCartItems);
