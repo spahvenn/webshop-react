@@ -6,6 +6,7 @@ import Main from './main-views/main.component';
 import Phones from './main-views/phones.component';
 import PhoneDetail from './main-views/phone-detail.component';
 import About from './main-views/about.component';
+import Contact from './main-views/contact.component';
 import ShoppingCart from './main-views/shopping-cart.component';
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
             />
           <Route path="/shopping-cart" component={ShoppingCart}/>
           <Route path="/about" component={About}/>
+          <Route path="/contact" component={Contact}/>
         </Route>
       </Router>
     )
