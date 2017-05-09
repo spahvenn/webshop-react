@@ -46,65 +46,72 @@ class ContactForm extends Component {
   }
 
   validateForm() {
-    if (
-      this.validateSubject(this.state.subject) &&
-      this.validateMessage(this.state.message) &&
+
+    const validations = [
+      this.validateSubject(this.state.subject),
+      this.validateMessage(this.state.message),
       this.validateEmail(this.state.email)
-    ) {
+    ];
+
+    if (validations.indexOf(false) === -1) {
       return true;
     }
     return false;
   }
 
   validateEmail(value) {
-    var errors = Object.assign({}, this.state.errors);
+
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-      errors.email = 'Email is invalid';
-      this.setState({
-        errors: errors
+      this.setState((prevState) => {
+        const errors = Object.assign({}, prevState.errors);
+        errors.email = 'Email is invalid';
+        return { errors: errors };
       });
       return false;
     }
 
-    errors.email = '';
-    this.setState({
-      errors: errors
+    this.setState((prevState) => {
+      const errors = Object.assign({}, prevState.errors);
+      errors.email = '';
+      return { errors: errors };
     });
 
     return true;
   }
 
   validateSubject(value) {
-    var errors = Object.assign({}, this.state.errors);
     if (value === '') {
-      errors.subject = 'Subject is required';
-      this.setState({
-        errors: errors
+      this.setState((prevState) => {
+        const errors = Object.assign({}, prevState.errors);
+        errors.subject = 'Subject is required';
+        return { errors: errors };
       });
       return false;
     }
 
-    errors.subject = '';
-    this.setState({
-      errors: errors
+    this.setState((prevState) => {
+      const errors = Object.assign({}, prevState.errors);
+      errors.subject = '';
+      return { errors: errors };
     });
 
     return true;
   }
 
   validateMessage(value) {
-    var errors = Object.assign({}, this.state.errors);
     if (value === '') {
-      errors.message = 'Message is required';
-      this.setState({
-        errors: errors
+      this.setState((prevState) => {
+        const errors = Object.assign({}, prevState.errors);
+        errors.message = 'Subject is required';
+        return { errors: errors };
       });
       return false;
     }
 
-    errors.message = '';
-    this.setState({
-      errors: errors
+    this.setState((prevState) => {
+      const errors = Object.assign({}, prevState.errors);
+      errors.message = '';
+      return { errors: errors };
     });
 
     return true;
