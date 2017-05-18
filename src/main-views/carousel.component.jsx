@@ -10,7 +10,8 @@ class HomeCarousel extends Component {
     super(props);
     this.state = {
       interval: 3500,
-      images: [phoneImage1, phoneImage2, phoneImage3]
+      images: [phoneImage1, phoneImage2, phoneImage3],
+      pauseOnHover: false
     };
   }
 
@@ -27,7 +28,10 @@ class HomeCarousel extends Component {
 
     return (
       <div>
-        <Carousel interval={this.state.interval}>
+        <Carousel
+          interval={this.state.interval}
+          pauseOnHover={this.state.pauseOnHover}
+        >
           { carouselImages }
         </Carousel>
       </div>
