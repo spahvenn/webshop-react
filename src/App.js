@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route, browserHistory} from 'react-router';
+import { useBasename } from 'history'
 
 import Home from './main-views/home.component';
 import Main from './main-views/main.component';
@@ -14,17 +15,17 @@ class App extends Component {
   render() {
     const baseUrl = process.env.PUBLIC_URL;
     return (
-      <Router history={browserHistory}>
-        <Route component={Main}>
-          <Route path={baseUrl + '/'} component={Home}/>
-          <Route path={baseUrl + '/phones'} component={Phones}/>
+      <Router history={ useBasename(() => browserHistory)({ basename: baseUrl }) }>
+      <Route component={Main}>
+          <Route path='/' component={Home}/>
+          <Route path='/phones' component={Phones}/>
           <Route
-            path={baseUrl + '/phones/:phoneId'}
+            path='/phones/:phoneId'
             component={PhoneDetail}
             />
-          <Route path={baseUrl + '/shopping-cart'} component={ShoppingCart}/>
-          <Route path={baseUrl + '/about'} component={About}/>
-          <Route path={baseUrl + '/contact'} component={Contact}/>
+          <Route path='/shopping-cart' component={ShoppingCart}/>
+          <Route path='/about' component={About}/>
+          <Route path='/contact' component={Contact}/>
         </Route>
       </Router>
     )
