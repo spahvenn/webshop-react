@@ -12,18 +12,19 @@ import ShoppingCart from './main-views/shopping-cart.component';
 class App extends Component {
 
   render() {
+    const baseUrl = process.env.PUBLIC_URL;
     return (
       <Router history={browserHistory}>
         <Route component={Main}>
-          <Route path="/" component={Home}/>
-          <Route path="/phones" component={Phones}/>
+          <Route path={baseUrl + '/'} component={Home}/>
+          <Route path={baseUrl + '/phones'} component={Phones}/>
           <Route
-            path="/phones/:phoneId"
+            path={baseUrl + '/phones/:phoneId'}
             component={PhoneDetail}
             />
-          <Route path="/shopping-cart" component={ShoppingCart}/>
-          <Route path="/about" component={About}/>
-          <Route path="/contact" component={Contact}/>
+          <Route path={baseUrl + '/shopping-cart'} component={ShoppingCart}/>
+          <Route path={baseUrl + '/about'} component={About}/>
+          <Route path={baseUrl + '/contact'} component={Contact}/>
         </Route>
       </Router>
     )
