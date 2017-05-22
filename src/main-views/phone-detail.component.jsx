@@ -68,7 +68,7 @@ class PhoneDetail extends Component {
         </div>
         <div className="specs">
           <div className="row">
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6 col-lg-offset-2">
+            <div className="col-md-3 col-sm-3 col-xs-6 ">
               <span>Battery</span>
               <dl>
                 <dt>Type</dt>
@@ -79,7 +79,7 @@ class PhoneDetail extends Component {
                 <dd>{this.state.phone.battery.standbyTime}</dd>
               </dl>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+            <div className="col-md-3 col-sm-3 col-xs-6">
               <span>Storage and Memory</span>
               <dl>
                 <dt>RAM</dt>
@@ -88,7 +88,7 @@ class PhoneDetail extends Component {
                 <dd>{this.state.phone.storage.flash}</dd>
               </dl>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+            <div className="col-md-3 col-sm-3 col-xs-6">
               <span>Connectivity</span>
               <dl>
                 <dt>Network Support</dt>
@@ -103,7 +103,7 @@ class PhoneDetail extends Component {
                 <dd>{this.state.phone.connectivity.gps}</dd>
               </dl>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+            <div className="col-md-3 col-sm-3 col-xs-6">
               <span>Android</span>
               <dl>
                 <dt>OS Version</dt>
@@ -114,7 +114,7 @@ class PhoneDetail extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6 col-lg-offset-2">
+            <div className="col-md-3 col-sm-3 col-xs-6 ">
               <span>Size and Weight</span>
               <dl>
                 <dt>Dimensions</dt>
@@ -122,7 +122,7 @@ class PhoneDetail extends Component {
                 <dd>{this.state.phone.sizeAndWeight.weight}</dd>
               </dl>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+            <div className="col-md-3 col-sm-3 col-xs-6">
               <span>Display</span>
               <dl>
                 <dt>Screen size</dt>
@@ -133,7 +133,7 @@ class PhoneDetail extends Component {
                 <dd>{this.state.phone.display.touchScreen }</dd>
               </dl>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+            <div className="col-md-3 col-sm-3 col-xs-6">
               <span>Hardware</span>
               <dl>
                 <dt>CPU</dt>
@@ -148,7 +148,7 @@ class PhoneDetail extends Component {
                 <dd>{this.state.phone.hardware.accelerometer }</dd>
               </dl>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+            <div className="col-md-3 col-sm-3 col-xs-6">
               <span>Camera</span>
               <dl>
                 <dt>Primary</dt>
@@ -159,7 +159,7 @@ class PhoneDetail extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-2 col-md-3 col-sm-3 col-xs-6 col-lg-offset-2">
+            <div className="col-md-3 col-sm-3 col-xs-6 ">
               <span>Additional Features</span>
               <dd>{this.state.phone.additionalFeatures}</dd>
             </div>
