@@ -17,7 +17,7 @@ class ShoppingCart extends Component {
     let promises = [];
 
     _.each(itemIds, function (itemId) {
-      promises.push(Axios.get('phones-data/' + itemId + '.json'));
+      promises.push(Axios.get(process.env.PUBLIC_URL+'/phones-data/' + itemId + '.json'));
     });
 
     Promise.all(promises)

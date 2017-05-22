@@ -61,7 +61,7 @@ class ContactForm extends Component {
 
   validateEmail(value) {
 
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
       this.setState((prevState) => {
         const errors = Object.assign({}, prevState.errors);
         errors.email = 'Email is invalid';

@@ -13,10 +13,10 @@ import ShoppingCart from './main-views/shopping-cart.component';
 class App extends Component {
 
   render() {
-    const baseUrl = process.env.PUBLIC_URL;
+    const baseUrl = '/webshop-react';
     return (
       <Router history={ useBasename(() => browserHistory)({ basename: baseUrl }) }>
-      <Route component={Main}>
+        <Route component={Main}>
           <Route path='/' component={Home}/>
           <Route path='/phones' component={Phones}/>
           <Route

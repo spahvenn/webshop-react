@@ -16,7 +16,7 @@ class PhoneDetail extends Component {
   componentWillMount() {
     var self = this;
     this.phoneId = this.props.params.phoneId;
-    Axios.get('phones-data/' + this.phoneId + '.json')
+    Axios.get(process.env.PUBLIC_URL+'/phones-data/' + this.phoneId + '.json')
     .then(function(result) {
       self.setState({
         phone: result.data,
@@ -45,7 +45,7 @@ class PhoneDetail extends Component {
         <div className="row">
           <div className="col-md-6">
             <div className="phone-images">
-              <img src={'../' + this.state.phone.images[0]} alt=""/>
+              <img src={process.env.PUBLIC_URL+'/'+this.state.phone.images[0]} alt=""/>
             </div>
           </div>
           <div className="col-md-6">

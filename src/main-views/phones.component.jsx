@@ -14,7 +14,7 @@ class Main extends Component {
   componentWillMount() {
     var self = this;
     this.serverRequest =
-    Axios.get("phones-data/phones.json")
+    Axios.get(process.env.PUBLIC_URL+"/phones-data/phones.json")
     .then(function(result) {
       self.setState({
         phones: result.data
@@ -31,7 +31,7 @@ class Main extends Component {
               return (
                 <div key={phone.id} className="thumbnail phone-list-item col-md-3">
                   <Link to={"/phones/"+ phone.id} className="thumb">
-                    <img src={phone.imageUrl} alt={phone.name} />
+                    <img src={process.env.PUBLIC_URL+'/'+phone.imageUrl} alt={phone.name} />
                   </Link>
                   <Link to={"/phones/"+ phone.id}>{phone.name}</Link>
                   <p>{phone.snippet}</p>

@@ -19,7 +19,7 @@ class ShoppingCartItems extends Component {
 
                   <div className="col-md-2">
                     <Link to={"phones/" + phone.id}>
-                      <img src={phone.images[0]} alt={phone.name}/>
+                      <img src={process.env.PUBLIC_URL+'/'+phone.images[0]} alt={phone.name}/>
                     </Link>
                   </div>
 
